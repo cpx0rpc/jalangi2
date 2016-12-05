@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+
+  "name": "DJ2",
+  "description": "Dynamic analysis tool for Javascript using Jalangi2",
+  "version": "1.0",
+
+  "author": "Phakpoom Chinprutthiwong",
+
+  "devtools_page": "devtools.html",
+
+  "background" : {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "web_accessible_resources": ["instrument.js"],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["inject.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "inactive.png",
+    "default_title": "DJ2"
+  },
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "activeTab",
+    "tabs",
+    "storage",
+    "proxy",
+    "<all_urls>"
+  ]
+}
